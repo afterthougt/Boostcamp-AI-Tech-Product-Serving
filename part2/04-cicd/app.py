@@ -14,7 +14,7 @@ from confirm_button_hack import cache_on_button_press
 st.set_page_config(layout="wide")
 
 
-root_password = 'password'
+root_password = "password"
 
 
 def main():
@@ -33,12 +33,12 @@ def main():
         image_bytes = uploaded_file.getvalue()
         image = Image.open(io.BytesIO(image_bytes))
 
-        st.image(image, caption='Uploaded Image')
+        st.image(image, caption="Uploaded Image")
         st.write("Classifying...")
         _, y_hat = get_prediction(model, image_bytes)
-        label = config['classes'][y_hat.item()]
+        label = config["classes"][y_hat.item()]
 
-        st.write(f'label is {label}')
+        st.write(f"label is {label}")
 
 
 @cache_on_button_press('Authenticate')
